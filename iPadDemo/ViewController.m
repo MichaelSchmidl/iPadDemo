@@ -16,7 +16,10 @@
 
 @implementation ViewController
 
+@synthesize dispS1 = _dispS1;
 @synthesize dispS2 = _dispS2;
+@synthesize dispS3 = _dispS3;
+@synthesize dispS4 = _dispS4;
 
 // used to communicate with the RFID reader
 EADSessionController *sessionController;
@@ -30,6 +33,15 @@ typedef enum
     disabled_READER
 }eReaderStatus;
 eReaderStatus readerStatus = no_READER;
+
+// keep track of the current HID status
+typedef enum
+{
+    KBD_unknown,
+    KBD_on,
+    KBD_off
+}eKbdStatus;
+eKbdStatus kbdStatus = KBD_unknown;
 
 // local buffer to collect the data comming in from the accessory
 #define MAX_READ_LENGTH 500
@@ -76,10 +88,83 @@ uint8_t readString[MAX_READ_LENGTH];
     } // switch readerStatus
 }
 
+-(void) KbdAction:(id)sender{
+    NSLog(@"KbdAction");
+    switch(kbdStatus)
+    {
+        case KBD_off:
+            [self turnHIDON];
+            break;
+        case KBD_unknown:
+        case KBD_on:
+        default:
+            [self turnHIDOFF];
+            break;
+    } // switch readerStatus
+}
+
+
+-(void) GIAction:(id)sender{
+    NSLog(@"GIAction");
+    //TODO: to be completed
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // functions we need to talk with the reader
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)turnHIDON{
+    NSLog(@"turnHIDON");
+    [TestFlight passCheckpoint:@"turnHIDON"];
+    
+    // send the HIDON string to the READER
+    char cStr[100];
+    NSInteger EOLchar = [[[NSUserDefaults standardUserDefaults] stringForKey:@"EOL_character_preference"] integerValue];
+    if (NULL != [[NSUserDefaults standardUserDefaults] stringForKey:@"HIDON_command_preference"])
+    {
+        sprintf(cStr, "%s%c", [[[NSUserDefaults standardUserDefaults] stringForKey:@"HIDON_command_preference"] UTF8String], (char)EOLchar);
+    }
+    else
+    {
+        sprintf(cStr, "k1\n");
+    }
+    int len = (int)strlen(cStr);
+    [[EADSessionController sharedController] writeData:[NSData dataWithBytes:cStr length:len]];
+    
+    // show the status as text in the S3
+    [_dispS3 setText:[[NSUserDefaults standardUserDefaults] stringForKey:@"HID_ON_preference"]];
+    kbdStatus = KBD_on;
+
+    [_dispS4 becomeFirstResponder];
+    [_dispS4 setText:@""];
+
+}
+
+- (void)turnHIDOFF{
+    NSLog(@"turnHIDOFF");
+    [TestFlight passCheckpoint:@"turnHIDOFF"];
+    
+    // send the HIDOFF command to the reader
+    char cStr[100];
+    NSInteger EOLchar = [[[NSUserDefaults standardUserDefaults] stringForKey:@"EOL_character_preference"] integerValue];
+    if (NULL != [[NSUserDefaults standardUserDefaults] stringForKey:@"HIDOFF_command_preference"])
+    {
+        sprintf(cStr, "%s%c", [[[NSUserDefaults standardUserDefaults] stringForKey:@"HIDOFF_command_preference"] UTF8String], (char)EOLchar);
+    }
+    else
+    {
+        sprintf(cStr, "k0\n");
+    }
+    int len = (int)strlen(cStr);
+    [[EADSessionController sharedController] writeData:[NSData dataWithBytes:cStr length:len]];
+    
+    // show the status as text in S3
+    [_dispS3 setText:[[NSUserDefaults standardUserDefaults] stringForKey:@"HID_OFF_preference"]];
+    kbdStatus = KBD_off;
+
+    [_dispS4 resignFirstResponder];
+}
+
 - (void)turnReaderON{
     NSLog(@"turnReaderON");
     [TestFlight passCheckpoint:@"turnReaderON"];
@@ -109,11 +194,16 @@ uint8_t readString[MAX_READ_LENGTH];
     // enable the other two buttons
     [KbdButton setEnabled:TRUE];
     [GIButton setEnabled:TRUE];
+    // and show the S3 status
+    [_dispS3 setHidden:FALSE];
+    [self turnHIDOFF];
 }
 
 - (void)turnReaderOFF{
     NSLog(@"turnReaderOFF");
     [TestFlight passCheckpoint:@"turnReaderOFF"];
+    
+    [self turnHIDOFF];
     
     // send the OFF command to the reader
     char cStr[100];
@@ -136,10 +226,13 @@ uint8_t readString[MAX_READ_LENGTH];
     // show the status also as text in S2
     [_dispS2 setText:[[NSUserDefaults standardUserDefaults] stringForKey:@"ReaderPower_OFF_preference"]];
     [_dispS2 setTextColor:[UIColor lightGrayColor]];
-
+    
     // disable the other two buttons
     [KbdButton setEnabled:FALSE];
     [GIButton setEnabled:FALSE];
+    
+    // and hide the S3 status
+    [_dispS3 setHidden:TRUE];
 }
 
 - (void)searchForReader{

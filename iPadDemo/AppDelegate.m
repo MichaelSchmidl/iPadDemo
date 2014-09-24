@@ -22,12 +22,16 @@
     
     // be sure these defaults are consistant of what is defined in the PLIST as defaults
     NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 @"ON",                        @"ON_command_preference",
-                                 @"OFF",                       @"OFF_command_preference",
-                                 @"13",                        @"EOL_character_preference",
-                                 @"Reader is ACTIVE",          @"ReaderPower_ON_preference",
-                                 @"Reader is OFF",             @"ReaderPower_OFF_preference",
-                                 @"-- no reader connected --", @"NoReader_preference",
+                                 @"ON",                              @"ON_command_preference",
+                                 @"OFF",                             @"OFF_command_preference",
+                                 @"13",                              @"EOL_character_preference",
+                                 @"Reader is ACTIVE",                @"ReaderPower_ON_preference",
+                                 @"Reader is OFF",                   @"ReaderPower_OFF_preference",
+                                 @"-- no reader connected --",       @"NoReader_preference",
+                                 @"k1",                              @"HIDON_command_preference",
+                                 @"k0",                              @"HIDOFF_command_preference",
+                                 @"Keyboard Wedge (81 Series Mode)", @"HID_ON_preference",
+                                 @"SDK (82 Series Mode)",            @"HID_OFF_preference",
                                  nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
     
@@ -93,6 +97,10 @@
     NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"ReaderPower_ON_preference"]);
     NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"ReaderPower_OFF_preference"]);
     NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"NoReader_preference"]);
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"HIDON_command_preference"]);
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"HIDOFF_command_preference"]);
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"HID_ON_preference"]);
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"HID_OFF_preference"]);
 }
 
 @end

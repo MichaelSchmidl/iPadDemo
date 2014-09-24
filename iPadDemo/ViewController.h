@@ -21,7 +21,10 @@
     IBOutlet UIButton *GIButton;
 }
 
+@property (nonatomic, retain) IBOutlet UILabel *dispS1;
 @property (nonatomic, retain) IBOutlet UILabel *dispS2;
+@property (nonatomic, retain) IBOutlet UILabel *dispS3;
+@property (nonatomic, retain) IBOutlet UILabel *dispS4;
 
 -(IBAction) OnOffAction:(id)sender;
 -(IBAction) KbdAction:(id)sender;

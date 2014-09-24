@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -27,6 +26,9 @@
                                 <state key="normal" title="B1" image="GetBadgeID-ON">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="GIAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WaL-Nt-Jjv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIy-xh-lcN">
                                 <rect key="frame" x="73" y="254" width="112" height="148"/>
@@ -50,6 +52,9 @@
                                 <state key="normal" title="B3" image="Apple_Keyboard">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="KbdAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ekk-kh-Ps1"/>
+                                </connections>
                             </button>
                             <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Red &amp; White Logo-01" translatesAutoresizingMaskIntoConstraints="NO" id="eeG-GW-dVu">
                                 <rect key="frame" x="32" y="508" width="240" height="128"/>
@@ -125,6 +130,7 @@
                         <outlet property="KbdButton" destination="rk4-xd-7Qy" id="Un5-pr-6cJ"/>
                         <outlet property="OnOffButton" destination="IIy-xh-lcN" id="reC-JX-y8w"/>
                         <outlet property="dispS2" destination="t05-ee-yHx" id="ZaK-rO-X6w"/>
+                        <outlet property="dispS3" destination="qUz-S0-7o4" id="Kbl-a1-LDu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

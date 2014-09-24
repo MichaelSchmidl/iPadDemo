@@ -58,13 +58,13 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>k?</string>
+			<string>k1</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>GETREADERMODE command:</string>
+			<string>HID ON:</string>
 			<key>Key</key>
-			<string>GETREADERMODE_command_preference</string>
+			<string>HIDON_command_preference</string>
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
@@ -72,9 +72,19 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>NORMALREADERMODE responce:</string>
+			<string>HID OFF:</string>
 			<key>Key</key>
-			<string>NORMALREADERMODE_responce_preference</string>
+			<string>HIDOFF_command_preference</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>DefaultValue</key>
+			<string>GI</string>
+			<key>Title</key>
+			<string>GetID:</string>
+			<key>Key</key>
+			<string>GI_command_preference</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -111,6 +121,32 @@
 			<string>noReaderFound:</string>
 			<key>Key</key>
 			<string>NoReader_preference</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>S3 Strings</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>DefaultValue</key>
+			<string>Keyboard Wedge (81 Series Mode)</string>
+			<key>Title</key>
+			<string>HIDON:</string>
+			<key>Key</key>
+			<string>HID_ON_preference</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>DefaultValue</key>
+			<string>SDK (82 Series Mode)</string>
+			<key>Title</key>
+			<string>HIDOFF:</string>
+			<key>Key</key>
+			<string>HID_OFF_preference</string>
 		</dict>
 		<dict>
 			<key>Type</key>
