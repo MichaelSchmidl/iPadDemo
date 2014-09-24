@@ -22,9 +22,12 @@
     
     // be sure these defaults are consistant of what is defined in the PLIST as defaults
     NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 @"ON",  @"ON_command_preference",
-                                 @"OFF", @"OFF_command_preference",
-                                 @"13",  @"EOL_character_preference",
+                                 @"ON",                        @"ON_command_preference",
+                                 @"OFF",                       @"OFF_command_preference",
+                                 @"13",                        @"EOL_character_preference",
+                                 @"Reader is ACTIVE",          @"ReaderPower_ON_preference",
+                                 @"Reader is OFF",             @"ReaderPower_OFF_preference",
+                                 @"-- no reader connected --", @"NoReader_preference",
                                  nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
     
@@ -87,6 +90,9 @@
     NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"OFF_command_preference"]);
     NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"ON_command_preference"]);
     NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"EOL_character_preference"]);
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"ReaderPower_ON_preference"]);
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"ReaderPower_OFF_preference"]);
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"NoReader_preference"]);
 }
 
 @end

@@ -168,6 +168,7 @@ NSString *EADSessionDataReceivedNotification = @"EADSessionDataReceivedNotificat
 // high level write data method
 - (void)writeData:(NSData *)data
 {
+    NSLog(@"writeData:%@", data);
     if (_writeData == nil) {
         _writeData = [[NSMutableData alloc] init];
     }

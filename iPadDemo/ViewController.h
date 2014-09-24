@@ -15,8 +15,17 @@
     NSMutableArray *_accessoryList;
     EAAccessory *_accessory;
     EAAccessory *_selectedAccessory;
+    
+    IBOutlet UIButton *OnOffButton;
+    IBOutlet UIButton *KbdButton;
+    IBOutlet UIButton *GIButton;
 }
 
+@property (nonatomic, retain) IBOutlet UILabel *dispS2;
+
+-(IBAction) OnOffAction:(id)sender;
+-(IBAction) KbdAction:(id)sender;
+-(IBAction) GIAction:(id)sender;
 
 @end
 

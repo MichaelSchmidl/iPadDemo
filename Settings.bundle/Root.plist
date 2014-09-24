@@ -80,6 +80,42 @@
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
+			<string>S2 Strings</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>DefaultValue</key>
+			<string>Reader is ACTIVE</string>
+			<key>Title</key>
+			<string>ReaderPower-ON:</string>
+			<key>Key</key>
+			<string>ReaderPower_ON_preference</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>DefaultValue</key>
+			<string>Reader is OFF</string>
+			<key>Title</key>
+			<string>ReaderPower-OFF:</string>
+			<key>Key</key>
+			<string>ReaderPower_OFF_preference</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>DefaultValue</key>
+			<string>-- no reader connected --</string>
+			<key>Title</key>
+			<string>noReaderFound:</string>
+			<key>Key</key>
+			<string>NoReader_preference</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
 			<string>Info</string>
 		</dict>
 		<dict>
