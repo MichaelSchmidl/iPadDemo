@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>General Settings</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>disable screen saver</string>
+			<key>Key</key>
+			<string>disable_screen_saver_preference</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>ON</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>ON command:</string>
+			<key>Key</key>
+			<string>ON_command_preference</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>OFF</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>OFF command:</string>
+			<key>Key</key>
+			<string>OFF_command_preference</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>13</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>EOL character (decimal):</string>
+			<key>Key</key>
+			<string>EOL_character_preference</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Reader Commands</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>k?</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>GETREADERMODE command:</string>
+			<key>Key</key>
+			<string>GETREADERMODE_command_preference</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>k0</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>NORMALREADERMODE responce:</string>
+			<key>Key</key>
+			<string>NORMALREADERMODE_responce_preference</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Info</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>DefaultValue</key>
+			<string>not set so far</string>
+			<key>Title</key>
+			<string>AppVersion</string>
+			<key>Key</key>
+			<string>AppVersion_preference</string>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>

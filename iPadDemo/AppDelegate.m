@@ -19,6 +19,31 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // start of your application:didFinishLaunchingWithOptions // ...
     [TestFlight takeOff:@"a76da106-1507-4365-ac94-e773e20d8c42"];
+    
+    // be sure these defaults are consistant of what is defined in the PLIST as defaults
+    NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 @"ON",  @"ON_command_preference",
+                                 @"OFF", @"OFF_command_preference",
+                                 @"13",  @"EOL_character_preference",
+                                 nil];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+    
+    // register to be notified if the settings change
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self
+               selector:@selector(defaultsChanged:)
+                   name:NSUserDefaultsDidChangeNotification
+                 object:nil];
+    
+    // at startup handle all default values as if they have changed
+    [self defaultsChanged:application];
+
+    // now set the actual app version and buildnr into the settings menu
+    NSString *buildnr = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString *appVersion = [NSString stringWithFormat:@"%@.%@", version, buildnr];
+    NSLog(@"AppVersion=%@", appVersion);
+    [[NSUserDefaults standardUserDefaults] setObject:appVersion forKey:@"AppVersion_preference"];
     return YES;
 }
 
@@ -42,6 +67,26 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+// called at initial startup or when defaults get changed by the user
+- (void) defaultsChanged:(UIApplication *)application
+{
+    UIApplication *thisApp = [UIApplication sharedApplication];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"disable_screen_saver_preference"])
+    {
+        NSLog(@"disable screen saver");
+        thisApp.idleTimerDisabled = YES;
+    }
+    else
+    {
+        NSLog(@"enable screen saver");
+        thisApp.idleTimerDisabled = NO;
+    }
+    
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"OFF_command_preference"]);
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"ON_command_preference"]);
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"EOL_character_preference"]);
 }
 
 @end
