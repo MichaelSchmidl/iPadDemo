@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" constant="93" id="5Vj-wL-LGf"/>
                                     <constraint firstAttribute="height" constant="140" id="tpz-6y-xGN"/>
                                 </constraints>
-                                <state key="normal" title="B1" image="GetBadgeID-ON">
+                                <state key="normal" title="B1" image="GetBadgeID-OFF">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -70,13 +70,16 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="S4" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FWq-tj-EzB">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="S4" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="FWq-tj-EzB">
                                 <rect key="frame" x="431" y="111" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="YVw-Mo-9ix"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="fHm-Y2-riT"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="S1" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Mq-YS-KqC">
                                 <rect key="frame" x="431" y="163" width="97" height="30"/>
@@ -86,14 +89,17 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="B0b-DH-lay"/>
+                                </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="S2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t05-ee-yHx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="S2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t05-ee-yHx">
                                 <rect key="frame" x="279" y="289" width="249" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="S3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUz-S0-7o4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="S3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUz-S0-7o4">
                                 <rect key="frame" x="272" y="422" width="249" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -117,8 +123,8 @@
                             <constraint firstItem="FWq-tj-EzB" firstAttribute="top" secondItem="ykW-l9-dl1" secondAttribute="top" constant="20" id="Lpq-km-0xZ"/>
                             <constraint firstItem="t05-ee-yHx" firstAttribute="leading" secondItem="qUz-S0-7o4" secondAttribute="leading" id="MEV-5u-xPB"/>
                             <constraint firstItem="ykW-l9-dl1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="57" id="QlN-fT-vOQ"/>
+                            <constraint firstItem="t05-ee-yHx" firstAttribute="leading" secondItem="6Mq-YS-KqC" secondAttribute="leading" id="Rqq-8v-TC5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Mq-YS-KqC" secondAttribute="trailing" constant="56" id="XW6-9S-8jy"/>
-                            <constraint firstItem="t05-ee-yHx" firstAttribute="leading" secondItem="IIy-xh-lcN" secondAttribute="trailing" constant="94" id="ZLi-J3-O7a"/>
                             <constraint firstItem="ykW-l9-dl1" firstAttribute="top" secondItem="LOe-jf-VFc" secondAttribute="bottom" constant="64" id="gax-yT-WVc"/>
                             <constraint firstAttribute="centerX" secondItem="LOe-jf-VFc" secondAttribute="centerX" id="gbG-KY-sek"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qUz-S0-7o4" secondAttribute="trailing" constant="56" id="hLJ-Gl-9Fh"/>
@@ -130,8 +136,10 @@
                         <outlet property="GIButton" destination="ykW-l9-dl1" id="bSu-As-mEk"/>
                         <outlet property="KbdButton" destination="rk4-xd-7Qy" id="Un5-pr-6cJ"/>
                         <outlet property="OnOffButton" destination="IIy-xh-lcN" id="reC-JX-y8w"/>
+                        <outlet property="dispS1" destination="6Mq-YS-KqC" id="Pm7-qZ-KBI"/>
                         <outlet property="dispS2" destination="t05-ee-yHx" id="ZaK-rO-X6w"/>
                         <outlet property="dispS3" destination="qUz-S0-7o4" id="Kbl-a1-LDu"/>
+                        <outlet property="dispS4" destination="FWq-tj-EzB" id="qku-2G-gdP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -141,7 +149,7 @@
     </scenes>
     <resources>
         <image name="Apple_Keyboard" width="961" height="457"/>
-        <image name="GetBadgeID-ON" width="933" height="1397"/>
+        <image name="GetBadgeID-OFF" width="933" height="1397"/>
         <image name="ReaderPower-Off" width="933" height="1397"/>
         <image name="Red &amp; White Logo-01" width="878" height="385"/>
     </resources>

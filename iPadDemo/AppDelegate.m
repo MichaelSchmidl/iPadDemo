@@ -32,6 +32,8 @@
                                  @"k0",                              @"HIDOFF_command_preference",
                                  @"Keyboard Wedge (81 Series Mode)", @"HID_ON_preference",
                                  @"SDK (82 Series Mode)",            @"HID_OFF_preference",
+                                 @"GI",                              @"GI_command_preference",
+                                 
                                  nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
     

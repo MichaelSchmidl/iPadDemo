@@ -106,7 +106,23 @@ uint8_t readString[MAX_READ_LENGTH];
 
 -(void) GIAction:(id)sender{
     NSLog(@"GIAction");
-    //TODO: to be completed
+
+    // change the icon to indicate we wait for an ID
+    [GIButton setImage:[UIImage imageNamed:@"GetBadgeID-OFF.png"] forState:UIControlStateNormal];
+
+    // send the GI string to the READER
+    char cStr[100];
+    NSInteger EOLchar = [[[NSUserDefaults standardUserDefaults] stringForKey:@"EOL_character_preference"] integerValue];
+    if (NULL != [[NSUserDefaults standardUserDefaults] stringForKey:@"GI_command_preference"])
+    {
+        sprintf(cStr, "%s%c", [[[NSUserDefaults standardUserDefaults] stringForKey:@"GI_command_preference"] UTF8String], (char)EOLchar);
+    }
+    else
+    {
+        sprintf(cStr, "GI\n");
+    }
+    int len = (int)strlen(cStr);
+    [[EADSessionController sharedController] writeData:[NSData dataWithBytes:cStr length:len]];
 }
 
 
@@ -288,7 +304,7 @@ uint8_t readString[MAX_READ_LENGTH];
     while ((bytesAvailable = [sessionController readBytesAvailable]) > 0) {
         NSData *data = [sessionController readData:bytesAvailable];
         if (data) {
-            NSLog(@"%@", [NSString stringWithFormat:@"n=%lu <%@>", (unsigned long)[data length], data]);
+            //NSLog(@"%@", [NSString stringWithFormat:@"n=%lu <%@>", (unsigned long)[data length], data]);
             NSInteger n = [data length];
             NSInteger i = strlen(readBytes);
             const char *bytes = [data bytes];
@@ -305,45 +321,20 @@ uint8_t readString[MAX_READ_LENGTH];
                     readBytes[i] = 0;
                     if (MAX_READBYTES <= i) i = MAX_READBYTES-1;
                 }
-                NSLog(@"i=%lu", (long)i);
+                //NSLog(@"i=%lu", (long)i);
             }
             
             if ((i > 0))// && (KBD_unknown != kbdStatus)) // if the last character was not CR or LF, show the current string
             {
-//                NSString* newStr = [NSString stringWithUTF8String:readBytes];
-//                [_dispRFID setText:newStr];
-//                [_dispRFID setTextColor:[UIColor blackColor]];
+                NSString* newStr = [NSString stringWithUTF8String:readBytes];
+                [_dispS1 setText:newStr];
             }
             else // if the last character was CR or LF so the string index is ZERO, zero the string as well
             {
                 readBytes[i] = 0;
+                // change the icon to indicate we got an ID
+                [GIButton setImage:[UIImage imageNamed:@"GetBadgeID-ON.png"] forState:UIControlStateNormal];
             }
-#if 0
-            // see whether we got "k0" or "k1" so we know the KBD status now
-            if ((KBD_unknown == kbdStatus) && (2 == i)){
-                if ('k' == readBytes[0]){
-                    switch (readBytes[1]){
-                        case '0':
-                            NSLog(@"got k0");
-                            [_KBDButton setTitle:@"OFF" forState:UIControlStateNormal];
-                            [_KBDButton setEnabled:TRUE];
-                            kbdStatus = KBD_off;
-                            i = 0; // discard the KBD status message
-                            break;
-                        case '1':
-                            NSLog(@"got k1");
-                            [_KBDButton setTitle:@"ON" forState:UIControlStateNormal];
-                            [_KBDButton setEnabled:TRUE];
-                            [_dispRFID becomeFirstResponder];
-                            kbdStatus = KBD_on;
-                            i = 0; // discard the KBD status message
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            }
-#endif
         }
     }
 }
