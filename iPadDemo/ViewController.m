@@ -288,7 +288,7 @@ uint8_t readString[MAX_READ_LENGTH];
     while ((bytesAvailable = [sessionController readBytesAvailable]) > 0) {
         NSData *data = [sessionController readData:bytesAvailable];
         if (data) {
-            NSLog(@"%@", [NSString stringWithFormat:@"n=%lu <%@>", [data length], data]);
+            NSLog(@"%@", [NSString stringWithFormat:@"n=%lu <%@>", (unsigned long)[data length], data]);
             NSInteger n = [data length];
             NSInteger i = strlen(readBytes);
             const char *bytes = [data bytes];
@@ -305,7 +305,7 @@ uint8_t readString[MAX_READ_LENGTH];
                     readBytes[i] = 0;
                     if (MAX_READBYTES <= i) i = MAX_READBYTES-1;
                 }
-                NSLog(@"i=%lu", i);
+                NSLog(@"i=%lu", (long)i);
             }
             
             if ((i > 0))// && (KBD_unknown != kbdStatus)) // if the last character was not CR or LF, show the current string

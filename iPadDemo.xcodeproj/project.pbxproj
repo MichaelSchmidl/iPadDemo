@@ -152,10 +152,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27A12FF219D1E80E00A446D5 /* Build configuration list for PBXNativeTarget "iPadDemo" */;
 			buildPhases = (
-				27E56C0F19D2D2CC002F7FC5 /* Run Script */,
 				27A12FCB19D1E80E00A446D5 /* Sources */,
 				27A12FCC19D1E80E00A446D5 /* Frameworks */,
 				27A12FCD19D1E80E00A446D5 /* Resources */,
+				279DB5DD19D44609004D49E5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -244,14 +244,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		27E56C0F19D2D2CC002F7FC5 /* Run Script */ = {
+		279DB5DD19D44609004D49E5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,7 +392,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 84;
+				CURRENT_PROJECT_VERSION = 121;
 				INFOPLIST_FILE = iPadDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -410,7 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 84;
+				CURRENT_PROJECT_VERSION = 121;
 				INFOPLIST_FILE = iPadDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (

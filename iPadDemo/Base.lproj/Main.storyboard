@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -20,8 +21,8 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykW-l9-dl1">
                                 <rect key="frame" x="73" y="98" width="112" height="148"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="112" id="5Vj-wL-LGf"/>
-                                    <constraint firstAttribute="height" constant="148" id="tpz-6y-xGN"/>
+                                    <constraint firstAttribute="width" constant="93" id="5Vj-wL-LGf"/>
+                                    <constraint firstAttribute="height" constant="140" id="tpz-6y-xGN"/>
                                 </constraints>
                                 <state key="normal" title="B1" image="GetBadgeID-ON">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,8 +34,8 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIy-xh-lcN">
                                 <rect key="frame" x="73" y="254" width="112" height="148"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="148" id="lz4-yh-b1Z"/>
-                                    <constraint firstAttribute="width" constant="112" id="nAG-1N-ySw"/>
+                                    <constraint firstAttribute="height" constant="140" id="lz4-yh-b1Z"/>
+                                    <constraint firstAttribute="width" constant="93" id="nAG-1N-ySw"/>
                                 </constraints>
                                 <state key="normal" title="B2" image="ReaderPower-Off">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -140,8 +141,8 @@
     </scenes>
     <resources>
         <image name="Apple_Keyboard" width="961" height="457"/>
-        <image name="GetBadgeID-ON" width="1120" height="1482"/>
-        <image name="ReaderPower-Off" width="1120" height="1482"/>
+        <image name="GetBadgeID-ON" width="933" height="1397"/>
+        <image name="ReaderPower-Off" width="933" height="1397"/>
         <image name="Red &amp; White Logo-01" width="878" height="385"/>
     </resources>
 </document>
