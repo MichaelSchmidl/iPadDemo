@@ -69,6 +69,15 @@ uint8_t readString[MAX_READ_LENGTH];
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // actions
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (BOOL) textFieldShouldReturn:(UITextField *)textField{
+    NSLog(@"textFieldShouldReturn");
+    return YES;
+}
+
+-(void) HIDAction:(id)sender{
+    NSLog(@"HIDAction");
+}
+
 -(void) OnOffAction:(id)sender{
     NSLog(@"OnOffAction");
     switch(readerStatus)
@@ -280,6 +289,7 @@ uint8_t readString[MAX_READ_LENGTH];
         readerStatus = no_READER;
         [_dispS2 setText:[[NSUserDefaults standardUserDefaults] stringForKey:@"NoReader_preference"]];
         [_dispS2 setTextColor:[UIColor redColor]];
+        [_dispS3 setHidden:TRUE];
     }
 }
 
@@ -355,10 +365,8 @@ uint8_t readString[MAX_READ_LENGTH];
     readerStatus = no_READER;
     [_dispS2 setText:[[NSUserDefaults standardUserDefaults] stringForKey:@"NoReader_preference"]];
     [_dispS2 setTextColor:[UIColor redColor]];
-//    kbdStatus = KBD_unknown;
-//    [_KBDButton setEnabled:FALSE];
-//    [_KBDButton setTitle:@"???" forState:UIControlStateNormal];
-//    [_dispRFID resignFirstResponder];
+    [_dispS3 setHidden:TRUE];
+    [_dispS4 resignFirstResponder];
 }
 
 @end

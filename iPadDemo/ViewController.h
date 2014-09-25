@@ -29,5 +29,6 @@
 -(IBAction) OnOffAction:(id)sender;
 -(IBAction) KbdAction:(id)sender;
 -(IBAction) GIAction:(id)sender;
+-(IBAction) HIDAction:(id)sender;
 
 @end
