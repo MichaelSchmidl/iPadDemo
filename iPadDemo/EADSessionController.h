@@ -49,6 +49,7 @@
 
 #import <Foundation/Foundation.h>
 #import <ExternalAccessory/ExternalAccessory.h>
+#import "Header.h"
 
 extern NSString *EADSessionDataReceivedNotification;
 

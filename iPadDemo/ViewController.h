@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <ExternalAccessory/ExternalAccessory.h>
+#import "Header.h"
 
 
 @interface ViewController : UIViewController

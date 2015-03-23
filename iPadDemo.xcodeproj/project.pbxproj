@@ -31,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2779463319FE35CA00FD9821 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		278ADC9B19D2B5D2004B5016 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		278ADCA019D2B5D2004B5016 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		278ADCA419D2B634004B5016 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -115,6 +116,7 @@
 				27A12FDF19D1E80E00A446D5 /* Images.xcassets */,
 				27A12FE119D1E80E00A446D5 /* LaunchScreen.xib */,
 				27A12FD219D1E80E00A446D5 /* Supporting Files */,
+				2779463319FE35CA00FD9821 /* Header.h */,
 			);
 			path = iPadDemo;
 			sourceTree = "<group>";
@@ -392,7 +394,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 176;
 				INFOPLIST_FILE = iPadDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -409,7 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 176;
 				INFOPLIST_FILE = iPadDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
